@@ -1,3 +1,6 @@
+
+flag = true
+
 pipeline {
     agent any
     stages {
@@ -6,13 +9,13 @@ pipeline {
                 echo 'Building Project...'
             }
         }
-    }
-    post { 
-        always { 
-            echo 'Post build condition running'
-        }
-        failure { 
-            echo 'Post Action if Build Failed'
+        stage('Test') {
+            when { 
+                expression { flag == true }
+            }
+            steps {
+                echo 'Testing Project...'
+            }
         }
     }
 }
