@@ -3,18 +3,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building Project'
+                echo 'Building Project...'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing Project'
-            }
+    }
+    post { 
+        always { 
+            echo 'Post build condition running: I am finished with the work!' [cite: 54]
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying Project'
-            }
+        failure { 
+            echo 'Post Action: The build has failed.' [cite: 54]
         }
     }
 }
