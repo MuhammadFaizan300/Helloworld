@@ -9,10 +9,10 @@ pipeline {
     }
     post { 
         always { 
-            echo 'Post build condition running: I am finished with the work!' [cite: 54]
+            echo 'Post build condition running'
         }
         failure { 
-            echo 'Post Action: The build has failed.' [cite: 54]
+            echo 'Post Action if Build Failed'
         }
     }
 }
